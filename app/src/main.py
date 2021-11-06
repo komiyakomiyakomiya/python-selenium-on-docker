@@ -1,12 +1,13 @@
 import os
-
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from utils.driver_option import setting
 
 
+options = setting()
 driver = webdriver.Remote(
-    command_executor=os.environ["SELENIUM_URL"],
-    desired_capabilities=DesiredCapabilities.FIREFOX.copy()
+    command_executor=os.environ["CHROME_CONTAINER_URL"],
+    options=options,
 )
 
 driver.get("https://www.time-j.net/worldtime/country/jp")
