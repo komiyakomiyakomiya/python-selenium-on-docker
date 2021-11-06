@@ -13,7 +13,6 @@ https://support.apple.com/ja-jp/guide/remote-desktop/apde0dd523e/mac
 * OK
 
 ## 使用方法
-
 * app/src 内でクローラー記載
 * $ sh build.sh > appコンテナ内に接続される
 * vnc://localhost:15900に接続 
@@ -21,9 +20,14 @@ https://support.apple.com/ja-jp/guide/remote-desktop/apde0dd523e/mac
 * パスワード: secret 入力
 * $ python src/main.py > クローラー実行
 
+## 
+* docker-composeでappコンテナとchromeコンテナを起動
+  * app: Selenium + Python実行環境
+  * chrome: ブラウザ環境
+* appコンテナでクローラーを実行し、chromeコンテナのブラウザにリモートアクセス。
+* ローカルマシンからVNCアクセスしchromeコンテナ内のブラウザを表示
 
 ## 備考
-
 * `.devcontainer/devcontainer.json`はVSCodeでの`ms-vscode-remote.remote-containers`用の設定
 * ブラウザ表示が不要な場合はapp/src/utils/driver_option.pyの以下をコメントアウト
 
@@ -33,7 +37,7 @@ options.add_argument('--headless')
 ...
 ```
 
-## forked from
+## Forked from
 ryoheiszk/python-selenium-on-docker
 
 🙇
